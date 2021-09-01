@@ -47,6 +47,59 @@
         `;
 
         // Crie as funções a partir daqui.
+        function buscarPrimeiroMengo() {
+            console.log(letraDaMusica.indexOf('Mengo'));
+        }
+
+        function trocarNomeTime() {
+            console.log(letraDaMusica.replaceAll('Mengo', 'Nense'));
+        }
+
+        function contarCaracteresNoTexto() {
+            const letraDaMusicaSeparada = letraDaMusica.split('\n');
+            const letraDaMusicaSemEspacos = [];
+            let acumuladorDeCaracteres = 0;
+
+            letraDaMusicaSeparada.forEach(item => {
+                letraDaMusicaSemEspacos.push(item.trim())
+            })
+
+            letraDaMusicaSemEspacos.forEach(item => {
+                acumuladorDeCaracteres += item.length
+            })
+
+            console.log(acumuladorDeCaracteres)
+        }
+
+        function contarPalavrasNoTexto() {
+            const letraDaMusicaSeparada = letraDaMusica.split('\n');
+            const letraDaMusicaSemEspacos = [];
+            const letraDaMusicaSoPalavras = [];
+            let totalPalavras = 0;
+
+            letraDaMusicaSeparada.forEach(item => {
+                letraDaMusicaSemEspacos.push(item.trim())
+            });
+
+            letraDaMusicaSemEspacos.forEach(item => {
+                if(item.length != 0) {
+                    letraDaMusicaSoPalavras.push(item.split(' '))
+                }
+            });
+
+            letraDaMusicaSoPalavras.forEach(item => {
+                totalPalavras += item.length;
+            });
+
+            console.log(letraDaMusicaSoPalavras)
+            console.log(totalPalavras)
+        }
+
+        buscarPrimeiroMengo();
+        trocarNomeTime();
+        contarCaracteresNoTexto();
+        contarPalavrasNoTexto();
+
     </script>
 </body>
 </html>
