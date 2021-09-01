@@ -48,6 +48,34 @@
 
       // Crie as funções a partir daqui.
 
+        var procurar = proc_index();
+        var substituir = subs();
+        var contar = contarL();
+        var palavras = contarPalavras();
+
+        function proc_index() {
+            return letraDaMusica.indexOf('Mengo');
+        };
+
+        function subs() {
+            return letraDaMusica.replace(/Mengo/g, 'Palmeiras');
+        };
+
+        function contarL() {
+            return letraDaMusica.trim().length;
+        };
+
+        function contarPalavras() {
+            return letraDaMusica.trim().replace(/\s/g, '-')
+            .replace(/\-\-+/g, '-')
+            .replace(/(^-+|-+$)/, '').split('-').length
+
+        };
+ 
+        console.log(procurar);
+        console.log(substituir);
+        console.log(contar);
+        console.log(palavras);
 
     </script>
 </body>
