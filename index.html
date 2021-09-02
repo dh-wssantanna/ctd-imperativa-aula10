@@ -8,14 +8,20 @@
     
     <script type="text/javascript">
 
-        var mensagem = "Eu amo o Rio        ";
+        var mensagem = "       Eu amo o Rio               ";
+        var novaMensagem = mensagem.trim();
+        
+        console.log( mensagem );
+        console.log( mensagem.length );
+        console.log( mensagem.trim() );
+        console.log( novaMensagem.indexOf('Rio') );
+        console.log( mensagem.indexOf('Paulo') );
+        console.log( novaMensagem.length );
+        console.log( novaMensagem.slice(9, 12) )
+        console.log( novaMensagem.replace('o Rio', 'São Paulo') );
 
-        console.log( mensagem.length ); // 12
-        console.log( mensagem.indexOf('Rio') ) // 9
-        console.log( mensagem.slice(9, 12) ) // Eu
-        console.log( mensagem ); // Eu amo o Rio        
-        console.log( mensagem.trim() ); // // Eu amo o Rio
-        console.log( mensagem.replace('o Rio', 'São Paulo') ); // Eu amo São Paulo
+        // Eu amo o Rio
+        // 0123456789
 
     </script>
 </body>
