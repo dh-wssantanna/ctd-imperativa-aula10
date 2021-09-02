@@ -18,11 +18,15 @@
             Quais recursos?
             * function(){}
             * console.log(); ou alert();
-            * lenght para saber o comprimento.
-            * indexOf() para saber se algo existe e a partir de que index.
-            * trim() para remover espaços em branco.
-            * splite() seleciona uma faixa de caracteres.
-            * replace() para alterar uma parte do texto.
+            * lenght
+            * indexOf()
+            * trim()
+            * split()
+            * join()
+            * replace()
+             
+            Recursos extra
+            * Regex
         */
 
         var letraDaMusica = `
@@ -31,7 +35,7 @@
             Vou levar foguetes e bandeira
             Não vai ser de brincadeira
             Ele vai ser campeão
-                   
+                
             Não quero cadeira numerada
             Vou ficar na arquibancada
             Pra sentir mais emoção
@@ -47,6 +51,57 @@
         `;
 
         // Crie as funções a partir daqui.
+
+        function substituirNomeDoClube() {
+            /* 
+                replace() https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/replace
+                Regex https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Regular_Expressions
+            */
+            var letraDaMusicaAtualizada = letraDaMusica.replace(/mengo/gi, 'Vasco');
+            
+            return letraDaMusicaAtualizada;
+        }
+
+        console.log( 'Música Atualizada: ', substituirNomeDoClube() );
+
+        function contarNumeroTotalDeCaracteres() {
+            /*
+                .trim() https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/trim
+                .split() https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/split
+                .join() https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/join
+                .lenght https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/length
+            */
+            var letraDaMusicaSemEspacos = letraDaMusica
+            .trim()             // 1. Removi os espaços em branco no início e no fim da string.
+            .split('  ')        // 2. Criei uma Array removendo todos os espaços duplos.
+            .join('')           // 3. Convertir a Array em string removendo os espaços vazios extra.
+            .split(/\n\s*/g)    // 4. Criei uma Array removendo quebra de linha e espaços extras.
+            .join(' ')          // 5. Converti a Array em uma string sem quebra de linha e espaço extras.
+
+            console.log( 'Texto sem espaços extras e quebra de linha: ', letraDaMusicaSemEspacos );
+            var numeroTotalDeCaracteres = letraDaMusicaSemEspacos.length;
+            
+            return numeroTotalDeCaracteres;
+        }
+
+        console.log( 'Total de caracteres: ', contarNumeroTotalDeCaracteres() );
+
+        function contarNumeroTotalDePalavras() {
+            var listasDePalavrasDaLetra = letraDaMusica
+            .trim()             // 1. Removi os espaços em branco no início e no fim da string.
+            .split('  ')        // 2. Criei uma Array removendo todos os espaços duplos.
+            .join('')           // 3. Convertir a Array em string removendo os espaços vazios extra.
+            .split(/\n\s*/g)    // 4. Criei uma Array removendo quebra de linha e espaços extras.
+            .join(' ')          // 5. Converti a Array em uma string sem quebra de linha e espaço extras.
+            .split(' ')         // 6. Criei uma Array removendo os espaços entre as palavras.
+
+            console.log('Lista de palavras: ', listasDePalavrasDaLetra);
+            
+            return listasDePalavrasDaLetra.length;
+        }
+
+        console.log('Total de palavras:', contarNumeroTotalDePalavras());
+        
     </script>
 </body>
 </html>
