@@ -9,9 +9,9 @@
     <script type="text/javascript">
 
         /*
-            1. Crie uma função para buscar qual o index da primeira palavra Mengo.
-            2. Crie uma função para substituir o nome Mengo por outro nome de Time.
-            3. Crie uma função para contar quantos caracteres existem no texto. 
+            OK1. Crie uma função para buscar qual o index da primeira palavra Mengo.
+            OK2. Crie uma função para substituir o nome Mengo por outro nome de Time.
+            OK3. Crie uma função para contar quantos caracteres existem no texto. 
             Obs.: Contando com apenas os espaços entre as letras, espaços entre paragrafos não devem ser calculados).
             4. Crie uma função para contar quantas palavras existem no texto.
 
@@ -52,6 +52,15 @@
 
         // Crie as funções a partir daqui.
 
+        function buscarIndiceDaPalavraMengo() {
+            // Regex https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Regular_Expressions
+            var indice = letraDaMusica.indexOf(/mengo/i);
+
+            return indice;
+        }
+
+        //console.log( 'Indice da palavra mengo', buscarIndiceDaPalavraMengo() );
+
         function substituirNomeDoClube() {
             /* 
                 replace() https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/replace
@@ -62,7 +71,24 @@
             return letraDaMusicaAtualizada;
         }
 
-        console.log( 'Música Atualizada: ', substituirNomeDoClube() );
+        //console.log( 'Música Atualizada: ', substituirNomeDoClube() );
+
+        var lista = ['Banana', 'Maçã', 'Pêra'];
+
+        //console.log( lista.join(' ') );
+
+        var nomes = 'Willian, Pedro, Rosana, Luana';
+
+        //console.log( nomes.split(', ') );
+
+        var texto = '  Olá   Mundo';
+
+        //console.log( texto.trim().split('   ') ); // O número de palavras
+
+        var textoComQuebra = `Olá 
+        Mundo`;
+
+        console.log( textoComQuebra.split(/\n\s*/).join('').split(' ') );
 
         function contarNumeroTotalDeCaracteres() {
             /*
@@ -73,10 +99,8 @@
             */
             var letraDaMusicaSemEspacos = letraDaMusica
             .trim()             // 1. Removi os espaços em branco no início e no fim da string.
-            .split('  ')        // 2. Criei uma Array removendo todos os espaços duplos.
-            .join('')           // 3. Convertir a Array em string removendo os espaços vazios extra.
-            .split(/\n\s*/g)    // 4. Criei uma Array removendo quebra de linha e espaços extras.
-            .join(' ')          // 5. Converti a Array em uma string sem quebra de linha e espaço extras.
+            .split(/\n\s*/g)    // 2. Criei uma Array removendo quebra de linha e espaços extras.
+            .join(' ')          // 3. Converti a Array em uma string sem quebra de linha e espaço extras.
 
             console.log( 'Texto sem espaços extras e quebra de linha: ', letraDaMusicaSemEspacos );
             var numeroTotalDeCaracteres = letraDaMusicaSemEspacos.length;
@@ -89,11 +113,9 @@
         function contarNumeroTotalDePalavras() {
             var listasDePalavrasDaLetra = letraDaMusica
             .trim()             // 1. Removi os espaços em branco no início e no fim da string.
-            .split('  ')        // 2. Criei uma Array removendo todos os espaços duplos.
-            .join('')           // 3. Convertir a Array em string removendo os espaços vazios extra.
-            .split(/\n\s*/g)    // 4. Criei uma Array removendo quebra de linha e espaços extras.
-            .join(' ')          // 5. Converti a Array em uma string sem quebra de linha e espaço extras.
-            .split(' ')         // 6. Criei uma Array removendo os espaços entre as palavras.
+            .split(/\n\s*/g)    // 2. Criei uma Array removendo quebra de linha e espaços extras.
+            .join(' ')          // 3. Converti a Array em uma string sem quebra de linha e espaço extras.
+            .split(' ')         // 4. Criei uma Array removendo os espaços entre as palavras.
 
             console.log('Lista de palavras: ', listasDePalavrasDaLetra);
             
